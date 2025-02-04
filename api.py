@@ -28,7 +28,7 @@ def get_marks():
     for name in names:
         mark = student_marks.get(name)
         if mark is not None:
-            marks.append({"name": name, "marks": mark})
+            marks.append({mark})
         else:
             not_found.append(name)
 
