@@ -37,8 +37,7 @@ def get_marks():
             marks.append(mark)
     
     return jsonify({
-        "marks": marks,
-        "names_searched": names
+        "marks": marks
     })
 
 if __name__ == "__main__":
