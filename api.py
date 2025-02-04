@@ -22,18 +22,10 @@ def home():
 def get_marks():
     names = request.args.getlist("name")
     marks = []
-    not_found = []
 
     # Lookup marks for each name
     for name in names:
-        mark = student_marks.get(name)
-        if mark is not None:
-            marks.append({mark})
-        else:
-            not_found.append(name)
-
-    if not_found:
-        return jsonify({"error": "Student(s) not found", "names": not_found}), 404
+        marks.append(student_marks.get(name, None))  # Return None if the student is not found
 
     return jsonify({"marks": marks})
 
